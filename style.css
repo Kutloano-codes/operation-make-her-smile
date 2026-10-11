@@ -1,0 +1,234 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --pink: #e879a9;
+  --dark-pink: #c94f85;
+  --cream: #fffaf5;
+  --ink: #4a3440;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 30px 16px;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #fff0f5, #fffaf0, #fce4ec);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 440px);
+  padding: 30px 25px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid white;
+  border-radius: 28px;
+  box-shadow: 0 18px 60px #a94f7320;
+  animation: card-enter 0.8s ease both;
+}
+
+.eyebrow,
+.tiny-label,
+.footer-note {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--dark-pink);
+  font-weight: 700;
+}
+
+.photo-frame {
+  width: 190px;
+  height: 210px;
+  position: relative;
+  margin: 25px auto;
+  padding: 7px;
+  background: white;
+  border-radius: 100px 100px 25px 25px;
+  box-shadow: 0 8px 25px #c94f8525;
+  transform: rotate(-3deg);
+  animation: photo-pop 1s 0.2s ease both;
+}
+
+.her-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.photo-heart {
+  position: absolute;
+  right: -14px;
+  bottom: 12px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffe0eb;
+  color: var(--dark-pink);
+  font-size: 28px;
+}
+
+.tiny-label {
+  color: #b66b8c;
+  letter-spacing: 1px;
+}
+
+h1 {
+  margin: 14px 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(28px, 7vw, 36px);
+  line-height: 1.2;
+}
+
+#message {
+  max-width: 330px;
+  margin: 0 auto;
+  color: #78636d;
+  font-size: 15px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+button {
+  width: 100%;
+  min-height: 49px;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 15px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px #c94f8525;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--dark-pink);
+  outline-offset: 3px;
+}
+
+.primary-btn {
+  background: var(--pink);
+  color: white;
+}
+
+.secondary-btn {
+  background: #fff0f5;
+  color: var(--dark-pink);
+  border: 1px solid #f8d5e2;
+}
+
+.footer-note {
+  margin-top: 28px;
+  color: #b69aa7;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.floating-hearts span {
+  position: fixed;
+  bottom: -40px;
+  left: 10%;
+  color: #e879a966;
+  font-size: 26px;
+  pointer-events: none;
+  animation: float-up 9s linear infinite;
+}
+
+.floating-hearts span:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.floating-hearts span:nth-child(4) {
+  left: 70%;
+  animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(5) {
+  left: 85%;
+  animation-delay: 5s;
+}
+
+.floating-hearts span:nth-child(6) {
+  left: 60%;
+  animation-delay: 7s;
+}
+
+@keyframes photo-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.65) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-3deg);
+  }
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-up {
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
